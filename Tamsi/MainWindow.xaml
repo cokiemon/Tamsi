@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tamsi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Width="520" Height="350" MinHeight="300" MinWidth="500">
+    <!--<Grid Margin="0,0,0,0" Height="318">-->
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  
+                  HeadersVisibility="Column"
+                  Name="gridPackages" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Package Path" Binding="{Binding PackagePath}"
+                                    MinWidth="250"/>
+                <DataGridTextColumn Header="Package Type" Binding="{Binding PackageType}"
+                                    MinWidth="100"/>
+                <DataGridTextColumn Header="Package Size" Binding="{Binding PackageSizeDisplay}"
+                                    MinWidth="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Column="0" Grid.Row="1" Content="List"
+                HorizontalAlignment="Right" Height="29" VerticalAlignment="Center" Width="100" Click="Button_Click" RenderTransformOrigin="0.548,0.495" Margin="0,0,10,0"/>
+        <Label Name="totalSizeLabel" Content="Total: 0 KB" HorizontalAlignment="Left" Height="25.79" Margin="14.538,12.666,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100.108"/>
     </Grid>
 </Window>
